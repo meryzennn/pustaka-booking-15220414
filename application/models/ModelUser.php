@@ -34,20 +34,11 @@ class ModelUser extends CI_Model
         return $this->db->get();
     }
 
-    public function joinKategoriBuku($where) 
+    public function joinKategoriBuku($where)
     {
-    // Mengambil data dari tabel 'buku'
-    $this->db->from('buku');
-    
-    // Melakukan join dengan tabel 'kategori'
-    $this->db->join('kategori', 'kategori.id = buku.id_kategori');
-    
-    // Menambahkan kondisi where
-    $this->db->where($where);
-    
-    // Mengambil dan mengembalikan hasil query
-    return $this->db->get();
+        $this->db->from('buku');
+        $this->db->join('kategori', 'kategori.id = buku.id_kategori');
+        $this->db->where($where);
+        return $this->db->get();
     }
-
-
 }
