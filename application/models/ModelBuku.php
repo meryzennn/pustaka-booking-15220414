@@ -9,6 +9,13 @@ class ModelBuku extends CI_Model
         return $this->db->get('buku');
     }
 
+    public function getLimitBuku()
+    {
+        $this->db->limit(5);
+        return $this->db->get('buku')->result_array();
+    }
+
+
     public function bukuWhere($where)
     {
         return $this->db->get_where('buku', $where);
@@ -74,3 +81,5 @@ $this->db->where($where);
 return $this->db->get();
 }
 }
+
+
